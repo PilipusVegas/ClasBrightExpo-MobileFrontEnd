@@ -53,7 +53,7 @@ export default () => {
     if (item.status === 0) {
       await updateStatus(item.id_po);
     }
-    navigate(`/podetail/${item.id_po}`);
+    navigate(`/podetail/${item.id_po}`, { state: { id_po: item.id_po } });
   };
 
   const renderContent = () => {
@@ -65,9 +65,9 @@ export default () => {
             <input type="text" placeholder="Cari NO. PO ..." value={searchTerm.toUpperCase()} onChange={e => setSearchTerm(e.target.value.toUpperCase())} style={{ width: '100%', color: '#00A19D', borderRadius: '15px', textTransform: 'uppercase', border: '1px solid #00A19D', padding: '10px 10px 10px 40px' }} />
             <style>{`input::placeholder {color: #A0A0A0 }`}</style>
           </div>
-          <div style={{ overflowY: 'auto', maxHeight: '500px' }}>
+          <div style={{ marginTop: '10px', overflowY: 'auto', maxHeight: '500px' }}>
             {filteredData.map(item => (
-              <div key={item.id_po} onClick={() => handleCardClick(item)} style={{ padding: '30px', margin: '10px 0', position: 'relative', borderRadius: '15px', backgroundColor: '#FFFFFF', border: '1px solid #00A19D' }}>
+              <div key={item.id_po} onClick={() => handleCardClick(item)} style={{ padding: '30px', marginBottom: '10px', position: 'relative', borderRadius: '15px', backgroundColor: '#FFFFFF', border: '1px solid #00A19D' }}>
                 <div style={{ top: '10px', left: '10px', color: '#00A19D', fontWeight: 'bold', position: 'absolute' }}>{item.no_po}</div>
                 <div style={{ top: '10px', right: '10px', color: '#00A19D', position: 'absolute' }}>{formatDate(item.tanggal)}</div>
                 <div style={{ left: '10px', bottom: '10px', color: '#00A19D', position: 'absolute' }}>Jumlah: {item.jml_barang}</div>
