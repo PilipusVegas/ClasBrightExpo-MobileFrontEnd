@@ -27,9 +27,6 @@ const App = () => {
   const handleLogin = () => {
     if (username === 'user' && password === '1234') {
       setIsLoggedIn(true);
-      Toast.show(`Login berhasil dengan username: ${username}`);
-    } else {
-      Toast.show('Username atau password salah');
     }
   };
 
